@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 """
 Clase kmeans
@@ -28,7 +27,7 @@ class kmeans:
             Y = []
             # Cálculo de las distancias euclidenanas
             for punto in self.datos:
-                distancias = self.distanciaEuclideana(punto) # lista de distancias entre el punto y cada centroide
+                distancias = kmeans.distanciaEuclideana(self.centroides,punto) # lista de distancias entre el punto y cada centroide
                 numero_cluster = np.argmin(distancias) # asigna el punto al cluster de acuerdo al centroide
                 Y.append(numero_cluster) # lo guarda en la lista
             
@@ -56,6 +55,5 @@ class kmeans:
                 self.centroides = np.array(cluster_centro)
         return Y
 
-    def distanciaEuclideana(self,puntos):
-        return np.sqrt(np.sum((self.centroides - puntos)**2, axis =1 ))
-    
+    def distanciaEuclideana(centroides,punto):
+        return np.sqrt(np.sum((centroides - punto)**2, axis =1 ))
