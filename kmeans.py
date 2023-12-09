@@ -6,10 +6,10 @@ Se inicializa con el valor k de la cantidad de clusters
 Y el conjunto de datos X
 """
 class kmeans:
-    def __init__(self, k, X) -> None:
+    def __init__(self, k, X,iter) -> None:
         self.k = k
         self.centroides = None
-        self.iteraciones = 200
+        self.iteraciones = iter
         self.datos = X
     
     """
