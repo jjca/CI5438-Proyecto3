@@ -40,7 +40,49 @@ La clasificación original, esto es, sin K-means y usando los datos originales d
 
 ![Iris Original](iris_orig.jpeg)
 
+Se seleccionaron los valores de $k = [2,3,4,5]$. En teoría, el mejor clasificador debería ser el $k=3$ debido a que sabemos que hay son 3 tipos de plantas, mientras que los demás valores de $k$ no deberían clasificar corectamente al tener más o menos categorías.
 
+El hecho que se tengan menos categorías no significa que no sea posible obtener una certeza, ya que por ejemplo las plantas _Iris Versicolor_ e _Iris Virginica_ se sobreponenen en ciertas zonas, así que considerarlas como una sola clasificación como las _Iris V_ y las _Iris Setosa_ por otro lado puede crear una buena clasificación.
+
+Debido a la gran cantidad de gráficos se analizaran unos pocos.
+
+Veamos por ejemplo el caso _Largo del pétalo, Ancho del pétalo_
+
+![a](plants/petal_lengthpetal_width_k2.png)
+
+En este gráfico, podemos ver que si se consideran a las _Iris Setosa_ como las de color púrpura y a las _Iris V_ como las amarillas, la clasificación fue exitosa, a excepción de un punto irregular cerca de las _Iris V_.
+
+Con $k=3$ se puede tener una mejor certeza de cuáles son _Iris Virginica_ y cuáles son _Iris Versicolor_, sin embargo, aún hay solapamiento debido a la cercanía de estos valores.
+
+![a](plants/petal_lengthpetal_width_k3.png)
+
+Para $k=4$ y $k=5$ dan clasificaciones sin sentido.
+
+|$k=4$|$k=5$
+--|--|
+![a](plants/petal_lengthpetal_width_k4.png)|![a](plants/petal_lengthpetal_width_k5.png)
+
+A continuación consideremos el caso _Ancho del sépalo, Largo del sépalo_
+
+![b](plants/sepal_lengthsepal_width_k2.png)
+
+En este caso, si se considera a las amarillas como las _Iris Setosa_ y las moradas como las _Iris V_, la clasificación no es correcta ya que hay un grupo clasificado como _Iris Setosa_ cuando realmente son _Iris V_
+
+El caso con $k=3$ arroja realmente un resultado más acertado de la realidad:
+
+![b](plants/sepal_lengthsepal_width_k3.png)
+
+Para $k=4$ y $k=5$ da valores sin sentido.
+
+|$k=4$|$k=5$
+--|--|
+|![b](plants/sepal_lengthsepal_width_k4.png)|![b](plants/sepal_lengthsepal_width_k5.png)
+
+De estas observaciones, puede notarse que usar k-means para este conjunto de datos no es idóneo, aún cuando hayan aciertos, no se tiene una garantía de que los datos estén correctamente clasificados.
+
+Igualmente, el uso de valores de $k$ mayores a 3 ocasiona que la clasificación no tenga sentido. 
+
+Todo esto se menciona porque se tiene conocimiento del conjunto de datos.
 
 ## Parte 3 - Segmentación de Imágenes
 
