@@ -2,7 +2,7 @@ import kmeans as km
 import img
 from PIL import Image
 
-df, ancho,altura = img.toRGB('img03.jpeg')
+df, ancho,altura = img.toRGB('img01.jpeg')
 
 k = [2,4,8,16,32,64,128,256]
 iter = 200
@@ -22,4 +22,4 @@ for i in k:
     # Imprimir la iamgen final
     array = dfNew[['R','G','B']].values.reshape((altura,ancho,3)).astype('uint8')
     imgfinal = Image.fromarray(array)
-    imgfinal.save('./clustered/'+'waifu'+'_k_'+str(i)+'.png')
+    imgfinal.save('./clustered/'+'gi'+'_k_'+str(i)+'.jpeg')
